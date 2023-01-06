@@ -4,6 +4,11 @@
 <style>
     h1 {
         color: goldenrod;
-        margin: 30px auto;
+        margin: 15px auto;
+    }
+
+    p {
+        color: white;
+        margin: 15px auto;
     }
 </style>
