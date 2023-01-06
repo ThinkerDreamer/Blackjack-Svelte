@@ -1,5 +1,5 @@
 Components:
-    H1 heading (game name)
+    ✅H1 heading (game name)
     Instruction phrase (p)
     Betting component: 
         Choose your bet 
