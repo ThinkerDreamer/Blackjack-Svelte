@@ -1,0 +1,14 @@
+Components:
+    H1 heading (game name)
+    Instruction phrase (p)
+    Betting component: 
+        Choose your bet 
+        Default bet: $25
+        Slider
+    Hand of cards
+    Sum of hand
+    Buttons:
+        Start game
+        Hit (new card)
+        Stay
+    Player Score ($)
