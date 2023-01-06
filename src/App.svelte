@@ -2,15 +2,13 @@
 	import Title from "./Title.svelte";
 </script>
 
-<body>
-	<Title />
-</body>
+<Title />
 
 <style>
-	body {
+	:root {
 		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 			Arial, sans-serif;
-		background-image: url("./blackjack-table.jpg");
+		background-image: url("../blackjack-table.jpg");
 		/*             filter: blur(8px);
             -webkit-filter: blur(8px); */
 		background-size: cover;
