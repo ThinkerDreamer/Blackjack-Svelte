@@ -10,7 +10,7 @@
 <p>{message}</p>
 <div class="betting-els">
     <p>{betText}</p>
-    <input type="range" id="bet-slider" on:change={setNewBet}/>
+    <input type="range" id="bet-slider" on:mousemove|self={setNewBet} />
 </div>
 
 <style>
@@ -19,6 +19,9 @@
         height: 15px;
         background: #d3d3d3;
         outline: none;
+        padding: 0;
+        margin: 2px;
+        border: none;
     }
 
     #bet-slider::-webkit-slider-thumb {
