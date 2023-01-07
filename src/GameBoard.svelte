@@ -1,6 +1,6 @@
 <script>
     let cards = [1, 2, 3];
-    let sum = cards.reduce(function (a, b) {
+    $: sum = cards.reduce(function (a, b) {
         return a + b;
     });
 </script>
