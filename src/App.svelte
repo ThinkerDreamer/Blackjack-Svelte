@@ -1,10 +1,21 @@
 <script>
 	import Title from "./Title.svelte";
 	import Message from "./Message.svelte";
+	import Betting from "./Betting.svelte";
+	import GameBoard from "./GameBoard.svelte";
+
+	let gameRunning = true;
+	let bettingTime = false;
 </script>
 
 <Title />
 <Message />
+{#if bettingTime}
+	<Betting />
+{/if}
+{#if gameRunning}
+	<GameBoard />
+{/if}
 
 <style>
 	:root {
