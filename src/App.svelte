@@ -5,7 +5,7 @@
 	import GameBoard from "./GameBoard.svelte";
 
 	let gameRunning = true;
-	let bettingTime = false;
+	let bettingTime = true;
 </script>
 
 <Title />
