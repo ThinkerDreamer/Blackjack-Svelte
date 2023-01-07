@@ -7,7 +7,7 @@
         margin: 15px auto;
     }
 
-    p {
+    :global(p) {
         color: white;
         margin: 15px auto;
     }
