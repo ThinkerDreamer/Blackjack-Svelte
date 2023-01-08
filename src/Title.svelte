@@ -11,4 +11,8 @@
         color: white;
         margin: 15px auto;
     }
+
+    p {
+        font-size: 0.6rem;
+    }
 </style>
