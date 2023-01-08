@@ -1,20 +1,29 @@
 <script>
+	import { gameRunning, bettingTime, playerMoney } from "./store.js";
+
 	import Title from "./Title.svelte";
 	import Message from "./Message.svelte";
 	import Betting from "./Betting.svelte";
 	import GameBoard from "./GameBoard.svelte";
+	import StartGame from "./StartGame.svelte";
 
-	let gameRunning = true;
-	let bettingTime = true;
+	$: showMessage = true;
 </script>
 
 <Title />
-<Message />
-{#if bettingTime}
+
+{#if showMessage}
+	<Message />
+{/if}
+
+{#if $bettingTime === true}
 	<Betting />
 {/if}
-{#if gameRunning}
+
+{#if $gameRunning === true}
 	<GameBoard />
+{:else}
+	<StartGame />
 {/if}
 
 <style>
