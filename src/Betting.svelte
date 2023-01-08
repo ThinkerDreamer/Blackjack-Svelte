@@ -1,19 +1,46 @@
 <script>
+    import { bettingTime, playerMoney, currentBet, gameRunning } from "./store";
+
     let message = "Choose your bet";
     $: betText = "Default bet: $25";
+    $: choosingBet = true;
+    $: localBet = currentBet;
 
-    function setNewBet() {
+    function selectNewBet() {
         betText = "Current bet: $" + this.value;
+        localBet = this.value;
+    }
+
+    function setBet() {
+        choosingBet = false;
+        message = "";
+        bettingTime.set(false);
+        currentBet.set(localBet);
+        gameRunning.set(true);
     }
 </script>
 
-<p>{message}</p>
 <div class="betting-els">
-    <p>{betText}</p>
-    <input type="range" id="bet-slider" on:mousemove|self={setNewBet} />
+    <p class:small={!choosingBet}>{message}</p>
+    <p class:small={!choosingBet}>{betText}</p>
+    {#if choosingBet}
+        <input
+            type="range"
+            id="bet-slider"
+            max={$playerMoney}
+            min="5"
+            step="5"
+            value={$playerMoney / 8}
+            on:mousemove|self={selectNewBet}
+        />
+        <button on:click={setBet}>Save bet</button>
+    {/if}
 </div>
 
 <style>
+    .small {
+        font-size: 50%;
+    }
     #bet-slider {
         width: 50%;
         height: 15px;
