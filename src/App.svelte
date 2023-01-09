@@ -11,23 +11,25 @@
 </script>
 
 <svelte:head>
-  <title>Blackjack in Svelte</title>
+	<title>Blackjack in Svelte</title>
 </svelte:head>
 
 <Title />
 
-{#if showMessage}
+{#if showMessage && !$gameRunning && !$bettingTime}
 	<Message />
 {/if}
 
-{#if $bettingTime === true}
+{#if !$gameRunning && !$bettingTime}
+	<StartGame />
+{/if}
+
+{#if $bettingTime}
 	<Betting />
 {/if}
 
-{#if $gameRunning === true}
+{#if $gameRunning}
 	<GameBoard />
-{:else}
-	<StartGame />
 {/if}
 
 <style>
@@ -44,5 +46,8 @@
 		max-width: 700px;
 		margin: 0 auto;
 		font-size: 40px;
+	}
+	:global(p) {
+		margin: 0.5rem auto;
 	}
 </style>
