@@ -4,15 +4,10 @@
 <style>
     h1 {
         color: goldenrod;
-        margin: 15px auto;
+        margin: 15px auto 5px;
     }
-
-    :global(p) {
-        color: white;
-        margin: 15px auto;
-    }
-
     p {
+        margin: 5px auto 15px;
         font-size: 0.6rem;
     }
 </style>
