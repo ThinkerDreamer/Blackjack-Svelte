@@ -10,6 +10,10 @@
 	$: showMessage = true;
 </script>
 
+<svelte:head>
+  <title>Blackjack in Svelte</title>
+</svelte:head>
+
 <Title />
 
 {#if showMessage}
