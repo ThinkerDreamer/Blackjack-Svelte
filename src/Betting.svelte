@@ -1,5 +1,6 @@
 <script>
     import { bettingTime, playerMoney, currentBet, gameRunning } from "./store";
+    import Message from "./Message.svelte";
 
     let message = "Choose your bet";
     $: betText = "Default bet: $25";
@@ -13,7 +14,6 @@
 
     function setBet() {
         choosingBet = false;
-        message = "";
         bettingTime.set(false);
         currentBet.set(localBet);
         gameRunning.set(true);
@@ -21,7 +21,7 @@
 </script>
 
 <div class="betting-els">
-    <p class:small={!choosingBet}>{message}</p>
+    <Message {message} />
     <p class:small={!choosingBet}>{betText}</p>
     {#if choosingBet}
         <input
