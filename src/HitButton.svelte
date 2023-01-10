@@ -14,4 +14,4 @@
   }
 </script>
 
-<button on:click={randomCard}>Get a card</button>
+<button on:click={randomCard}>Hit</button>
