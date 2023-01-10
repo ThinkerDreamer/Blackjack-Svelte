@@ -6,6 +6,7 @@
 	import Betting from "./Betting.svelte";
 	import GameBoard from "./GameBoard.svelte";
 	import StartGame from "./StartGame.svelte";
+	import Scoreboard from "./Scoreboard.svelte";
 
 	$: showMessage = true;
 </script>
@@ -30,6 +31,7 @@
 
 {#if $gameRunning}
 	<GameBoard />
+	<Scoreboard />
 {/if}
 
 <style>
