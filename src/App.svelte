@@ -51,5 +51,6 @@
 	}
 	:global(p) {
 		margin: 0.5rem auto;
+		color: white;
 	}
 </style>
