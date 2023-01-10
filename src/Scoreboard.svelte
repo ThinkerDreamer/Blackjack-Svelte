@@ -2,7 +2,7 @@
     import { playerMoney } from "./store";
 </script>
 
-<p>You have ${$playerMoney}</p>
+<p>Funds: ${$playerMoney}</p>
 
 <style>
     p {
