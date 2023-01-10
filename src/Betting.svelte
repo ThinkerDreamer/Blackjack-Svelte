@@ -17,6 +17,7 @@
         bettingTime.set(false);
         currentBet.set(localBet);
         gameRunning.set(true);
+        playerMoney.set($playerMoney - $currentBet);
     }
 </script>
 
