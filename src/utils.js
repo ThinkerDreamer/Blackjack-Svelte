@@ -21,7 +21,7 @@ export function randomCard() {
             card.name = "K";
             break;
     }
-    if (randomNumber >= 10) {
+    if (randomNumber >= 10 || randomNumber === 1) {
         card.value = 10;
     } else {
         card.value = randomNumber;
