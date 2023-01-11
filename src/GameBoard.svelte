@@ -1,32 +1,63 @@
 <script>
-  import { currentBet, playerCards } from "./store";
+  import {
+    bettingTime,
+    currentBet,
+    playerCards,
+    playerSum,
+    playersTurn,
+    currentMsg,
+  } from "./store.js";
+
   import HitButton from "./HitButton.svelte";
   import StayButton from "./StayButton.svelte";
-  import FoldButton from "./FoldButton.svelte";
+  import Message from "./Message.svelte";
+  import Betting from "./Betting.svelte";
+  import { handleReset } from "./utils";
 
-  $: playerSum = $playerCards.reduce((a, b) => a + b, 0);
-  $: playersTurn = true;
-  $: canHit = true;
-  $: canStay = true;
-  $: canFold = true;
+  $: message = "";
+  $: showResetButton = false;
+  $bettingTime = true;
+
+  // TODO: instead of reset button, incorporate this with StayButton logic
+  // maybe use handlePlayerWin() or handleDealerWin() instead
+  $: if ($playerSum >= 21 && $playersTurn) {
+    $playersTurn = false;
+    if ($playerSum > 21) {
+      message = "You busted! Play again?";
+    }
+    if ($playerSum === 21) {
+      message = "You got 21! You win!";
+    }
+    showResetButton = true;
+  }
 </script>
 
-<p class="small">Current bet: ${$currentBet}</p>
-<p>Cards: {$playerCards}</p>
-<p>Sum: {playerSum}</p>
+{#if $bettingTime}
+  <Betting />
+{:else}
+  <p class="small">Current bet: ${$currentBet}</p>
+  <p>
+    Cards:
+    {#each $playerCards as card (card.value)}
+      <span>{card.name} </span>
+    {/each}
+  </p>
+  <p>Sum: {$playerSum}</p>
+{/if}
 
-{@debug playersTurn}
+{#if $playersTurn}
+  <HitButton />
+  <StayButton />
+{:else}
+  <Message {message} />
+{/if}
 
-{#if playersTurn}
-  {#if canHit}
-    <HitButton />
-  {/if}
-  {#if canStay}
-    <StayButton />
-  {/if}
-  {#if canFold}
-    <FoldButton />
-  {/if}
+{#if showResetButton}
+  <button
+    on:click={() => {
+      handleReset($currentMsg);
+    }}>Reset</button
+  >
 {/if}
 
 <style>
