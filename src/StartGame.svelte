@@ -1,14 +1,13 @@
 <script>
-    import { gameRunning, playerCards } from "./store.js";
+    import { gameRunning, playerCards, dealerCards } from "./store.js";
     import { giveCardPlayer } from "./utils";
 
     function handleStartBtn() {
         gameRunning.set(true);
         playerCards.set([]);
-        console.log("Reset playerCards.");
+        dealerCards.set([]);
         giveCardPlayer();
         giveCardPlayer();
-        console.log("Player Cards", $playerCards);
     }
 </script>
 
