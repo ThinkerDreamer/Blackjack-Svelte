@@ -1,8 +1,14 @@
 <script>
-    import { bettingTime } from "./store";
+    import { gameRunning, playerCards } from "./store.js";
+    import { giveCardPlayer } from "./utils";
 
     function handleStartBtn() {
-        bettingTime.set(true);
+        gameRunning.set(true);
+        playerCards.set([]);
+        console.log("Reset playerCards.");
+        giveCardPlayer();
+        giveCardPlayer();
+        console.log("Player Cards", $playerCards);
     }
 </script>
 
