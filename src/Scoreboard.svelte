@@ -1,8 +1,8 @@
 <script>
-    import { playerMoney } from "./store";
+    export let money;
 </script>
 
-<p>Funds: ${$playerMoney}</p>
+<p>Funds: ${money}</p>
 
 <style>
     p {
