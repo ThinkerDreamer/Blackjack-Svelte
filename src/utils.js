@@ -66,7 +66,6 @@ export function handleDraw() {
     playerMoney.update((currentMoney) => {
         return currentMoney + currentBet;
     })
-    console.log(`playerMoney is: ${playerMoney.value}`);
     gameRunning.set(false);
     playersTurn.set(false);
 }
