@@ -1,5 +1,12 @@
 <script>
-    import { bettingTime, playerMoney, currentBet, gameRunning } from "./store";
+    import {
+        bettingTime,
+        playerMoney,
+        currentBet,
+        gameRunning,
+        playersTurn,
+    } from "./store";
+
     import Message from "./Message.svelte";
 
     let message = "Choose your bet";
@@ -18,6 +25,7 @@
         currentBet.set(localBet);
         gameRunning.set(true);
         playerMoney.set($playerMoney - $currentBet);
+        playersTurn.set(true);
     }
 </script>
 
