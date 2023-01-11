@@ -3,12 +3,12 @@
 
   import Title from "./Title.svelte";
   import Message from "./Message.svelte";
-  import Betting from "./Betting.svelte";
   import GameBoard from "./GameBoard.svelte";
   import StartGame from "./StartGame.svelte";
   import Scoreboard from "./Scoreboard.svelte";
 
   $: showMessage = true;
+  $: money = $playerMoney;
 </script>
 
 <svelte:head>
@@ -18,21 +18,18 @@
 <Title />
 
 {#if showMessage && !$gameRunning && !$bettingTime}
-  <Message />
+  <Message /> <!-- default msg: "Want to play a round?"-->
 {/if}
 
-{#if !$gameRunning && !$bettingTime}
+{#if !$gameRunning}
   <StartGame />
-{/if}
-
-{#if $bettingTime}
-  <Betting />
 {/if}
 
 {#if $gameRunning}
   <GameBoard />
-  <Scoreboard />
 {/if}
+
+<Scoreboard {money} />
 
 <style>
   :root {
