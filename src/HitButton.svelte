@@ -1,5 +1,10 @@
 <script>
-  import { randomCard } from "./utils";
+  import { giveCardPlayer } from "./utils";
+
+  async function handleHit() {
+    giveCardPlayer();
+    await tick();
+  }
 </script>
 
-<button on:click={randomCard}>Hit</button>
+<button on:click={handleHit}>Hit</button>
