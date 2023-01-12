@@ -11,13 +11,11 @@
 
     let message = "Choose your bet";
     $: choosingBet = true;
-    $: localBet = $currentBet;
-    $: betText = "Current bet: $" + localBet;
+    $: betText = "Current bet: $" + $currentBet;
 
     function setBet() {
         choosingBet = false;
         bettingTime.set(false);
-        currentBet.set(localBet);
         gameRunning.set(true);
         playerMoney.set($playerMoney - $currentBet);
         playersTurn.set(true);
@@ -34,7 +32,7 @@
             max={$playerMoney}
             min="5"
             step="5"
-            bind:value={localBet}
+            bind:value={$currentBet}
         />
         <button on:click={setBet}>Save bet</button>
     {/if}
