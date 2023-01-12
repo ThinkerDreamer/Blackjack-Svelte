@@ -11,23 +11,39 @@
         dealerPlay();
         if ($dealerSum <= 21 && $playerSum < $dealerSum) {
             currentMsg.set(
-                "Dealer got " + $dealerSum + ". You lose! Play again?"
+                "You got " +
+                    $playerSum +
+                    "<br>Dealer got " +
+                    $dealerSum +
+                    ".<br>You lose! Play again?"
             );
             handleDealerWins();
         } else if ($dealerSum > 21) {
             currentMsg.set(
-                "Dealer busted with " + $dealerSum + "! You win! Play again?"
+                "You got " +
+                    $playerSum +
+                    "<br>Dealer busted with " +
+                    $dealerSum +
+                    "!<br>You win! Play again?"
             );
             console.log(`playerMoney is: ${$playerMoney}`);
             handlePlayerWins();
         } else if ($playerSum > $dealerSum) {
             currentMsg.set(
-                "You win! Dealer got " + $dealerSum + ". Play again?"
+                "You got " +
+                    $playerSum +
+                    "<br>You win!<br>Dealer got " +
+                    $dealerSum +
+                    ".<br>Play again?"
             );
             handlePlayerWins();
         } else if ($playerSum === $dealerSum) {
             currentMsg.set(
-                "It's a draw! Dealer got " + $dealerSum + ". Play again?"
+                "You got " +
+                    $playerSum +
+                    "<br>It's a draw!<br>Dealer got " +
+                    $dealerSum +
+                    ".<br>Play again?"
             );
             handleDraw();
         }
