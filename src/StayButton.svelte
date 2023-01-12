@@ -13,7 +13,7 @@
             currentMsg.set(
                 "You got " +
                     $playerSum +
-                    "<br>Dealer got " +
+                    ".<br>Dealer got " +
                     $dealerSum +
                     ".<br>You lose! Play again?"
             );
@@ -22,7 +22,7 @@
             currentMsg.set(
                 "You got " +
                     $playerSum +
-                    "<br>Dealer busted with " +
+                    ".<br>Dealer busted with " +
                     $dealerSum +
                     "!<br>You win! Play again?"
             );
@@ -31,18 +31,18 @@
             currentMsg.set(
                 "You got " +
                     $playerSum +
-                    "<br>You win!<br>Dealer got " +
+                    ".<br>Dealer got " +
                     $dealerSum +
-                    ".<br>Play again?"
+                    ".<br>You win!<br>Play again?"
             );
             handlePlayerWins();
         } else if ($playerSum === $dealerSum) {
             currentMsg.set(
                 "You got " +
                     $playerSum +
-                    "<br>It's a draw!<br>Dealer got " +
+                    ".<br>It's a draw!<br>Dealer got " +
                     $dealerSum +
-                    ".<br>Play again?"
+                    ", too.<br>Play again?"
             );
             handleDraw();
         }
