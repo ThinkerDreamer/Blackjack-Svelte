@@ -5,30 +5,27 @@
     playerCards,
     playerSum,
     playersTurn,
-    currentMsg,
   } from "./store.js";
 
   import HitButton from "./HitButton.svelte";
   import StayButton from "./StayButton.svelte";
   import Message from "./Message.svelte";
   import Betting from "./Betting.svelte";
-  import { handleReset } from "./utils";
+  import { handleDealerWins, handlePlayerWins } from "./utils";
 
   $: message = "";
-  $: showResetButton = false;
   $bettingTime = true;
 
-  // TODO: instead of reset button, incorporate this with StayButton logic
-  // maybe use handlePlayerWin() or handleDealerWin() instead
   $: if ($playerSum >= 21 && $playersTurn) {
     $playersTurn = false;
     if ($playerSum > 21) {
       message = "You busted! Play again?";
+      handleDealerWins();
     }
     if ($playerSum === 21) {
       message = "You got 21! You win!";
+      handlePlayerWins();
     }
-    showResetButton = true;
   }
 </script>
 
@@ -50,14 +47,6 @@
   <StayButton />
 {:else}
   <Message {message} />
-{/if}
-
-{#if showResetButton}
-  <button
-    on:click={() => {
-      handleReset($currentMsg);
-    }}>Reset</button
-  >
 {/if}
 
 <style>
