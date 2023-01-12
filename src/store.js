@@ -8,19 +8,22 @@ export let playerCards = writable([]);
 export let dealerCards = writable([]);
 export let currentMsg = writable("");
 export let playersTurn = writable(false);
+export let cardLastAdded = writable({});
+export let showCardView = writable(false);
 
 export const playerSum = derived(
     playerCards,
     $playerCards => {
-        let aceFlag = false;
+        let numOfAces = 0;
         for (let card of $playerCards) {
             if (card.name === "A") {
-                aceFlag = true;
+                numOfAces += 1;
             }
         }
         let initialSum = $playerCards.reduce((acc, obj) => acc + obj.value, 0)
-        if (initialSum > 21 && aceFlag) {
+        while (initialSum > 21 && numOfAces > 0) {
             initialSum -= 10;
+            numOfAces -= 1;
         }
         return initialSum;
     }
