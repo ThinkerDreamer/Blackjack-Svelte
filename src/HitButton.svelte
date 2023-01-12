@@ -1,7 +1,6 @@
 <script>
-  import { currentMsg } from "./store.js";
-  import { giveCardPlayer, handleDealerWins } from "./utils";
-  import { playerSum } from "./store";
+  import { currentMsg, playerSum, showCardView } from "./store.js";
+  import { giveCardPlayer, handlePlayerWins, handleDealerWins } from "./utils";
 
   function handleHit() {
     giveCardPlayer();
@@ -11,14 +10,16 @@
 
   function checkFor21() {
     if ($playerSum === 21) {
+      showCardView.set(true);
       currentMsg.set("You got 21! You win! Play again?");
       handlePlayerWins();
     }
   }
   function checkForBust() {
     if ($playerSum > 21) {
+      showCardView.set(true);
       currentMsg.set(
-        "You got " + $playerSum + "<br>and busted!<br>Dealer wins! Play again?"
+        "You got " + $playerSum + " and busted!<br>Dealer wins! Play again?"
       );
       handleDealerWins();
     }
