@@ -3,6 +3,7 @@
 </script>
 
 <p>{@html message}</p>
+<slot />
 
 <style>
     p {
