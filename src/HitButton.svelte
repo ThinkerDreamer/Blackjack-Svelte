@@ -1,9 +1,13 @@
 <script>
   import { giveCardPlayer } from "./utils";
+  import { playerCards, playerSum } from "./store";
 
-  async function handleHit() {
+  // async function handleHit() {
+  function handleHit() {
     giveCardPlayer();
-    await tick();
+    //await tick();
+    //$playerSum = $playerSum;
+    $playerCards = $playerCards;
   }
 </script>
 
