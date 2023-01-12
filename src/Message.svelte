@@ -2,7 +2,7 @@
     export let message = "Want to play a round?";
 </script>
 
-<p>{message}</p>
+<p>{@html message}</p>
 
 <style>
     p {
