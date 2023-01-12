@@ -1,14 +1,25 @@
-import { gameRunning, playerCards, dealerCards, currentMsg, currentBet, playerMoney, playersTurn } from "./store";
+import {
+    gameRunning, playerCards, dealerCards, currentMsg, currentBet, playerMoney, playersTurn,
+    cardLastAdded
+} from "./store";
 
 let pMoney;
 playerMoney.subscribe(money => {
     pMoney = money;
 });
 
+
 let cBet;
 currentBet.subscribe(bet => {
     cBet = bet;
 })
+
+
+let lastCard;
+cardLastAdded.subscribe(card => {
+    lastCard = card;
+});
+
 
 export function randomCard() {
     let card = {};
@@ -31,13 +42,17 @@ export function randomCard() {
             card.name = "K";
             break;
     }
-    if (randomNumber >= 10 || randomNumber === 1) {
+    if (randomNumber >= 10) {
         card.value = 10;
-    } else {
+    } else if (randomNumber != 1) {
         card.value = randomNumber;
         card.name = randomNumber;
     }
     return card;
+}
+
+function updateLastCard(card) {
+    cardLastAdded.set(card);
 }
 
 export function giveCardPlayer() {
@@ -46,6 +61,7 @@ export function giveCardPlayer() {
     playerCards.update((currentCards) => {
         return [...currentCards, card];
     });
+    updateLastCard(card);
 }
 
 export function giveCardDealer() {
