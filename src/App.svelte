@@ -14,6 +14,9 @@
   import CardView from "./CardView.svelte";
 
   $playerMoney = $playerMoney;
+
+  //TODO: bug 1) when natural 21, prize is added twice
+  //      bug 2) handle negative money
 </script>
 
 <svelte:head>
