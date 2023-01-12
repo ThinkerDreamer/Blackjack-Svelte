@@ -1,11 +1,17 @@
 <script>
-  import { gameRunning, playerMoney, currentMsg } from "./store.js";
+  import {
+    gameRunning,
+    playerMoney,
+    currentMsg,
+    showCardView,
+  } from "./store.js";
 
   import Title from "./Title.svelte";
   import Message from "./Message.svelte";
   import GameBoard from "./GameBoard.svelte";
   import StartGame from "./StartGame.svelte";
   import Scoreboard from "./Scoreboard.svelte";
+  import CardView from "./CardView.svelte";
 
   $playerMoney = $playerMoney;
 </script>
@@ -18,6 +24,9 @@
 
 {#if !$gameRunning}
   <Message message={$currentMsg ? $currentMsg : "Want to play a round?"} />
+  {#if $showCardView}
+    <CardView --prop-size={"0.6rem"} />
+  {/if}
   <StartGame />
 {/if}
 
