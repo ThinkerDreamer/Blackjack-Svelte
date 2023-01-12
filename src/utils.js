@@ -1,5 +1,15 @@
 import { gameRunning, playerCards, dealerCards, currentMsg, currentBet, playerMoney, playersTurn } from "./store";
 
+let pMoney;
+playerMoney.subscribe(money => {
+    pMoney = money;
+});
+
+let cBet;
+currentBet.subscribe(bet => {
+    cBet = bet;
+})
+
 export function randomCard() {
     let card = {};
     let randomNumber = Math.floor(Math.random() * 13) + 1;
@@ -53,7 +63,7 @@ export function handleReset(message) {
 
 export function handlePlayerWins() {
     playerMoney.update((currentMoney) => {
-        return currentMoney + (currentBet * 2);
+        return currentMoney + (cBet * 2);
     })
     gameRunning.set(false);
     playersTurn.set(false);
@@ -64,8 +74,8 @@ export function handleDealerWins() {
 }
 export function handleDraw() {
     playerMoney.update((currentMoney) => {
-        return currentMoney + currentBet;
-    })
+        return currentMoney + cBet;
+    });
     gameRunning.set(false);
     playersTurn.set(false);
 }
