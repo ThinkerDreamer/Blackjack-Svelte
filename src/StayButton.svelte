@@ -26,7 +26,6 @@
                     $dealerSum +
                     "!<br>You win! Play again?"
             );
-            console.log(`playerMoney is: ${$playerMoney}`);
             handlePlayerWins();
         } else if ($playerSum > $dealerSum) {
             currentMsg.set(
