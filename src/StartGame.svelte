@@ -1,8 +1,14 @@
 <script>
-    import { gameRunning, playerCards, dealerCards } from "./store.js";
+    import {
+        gameRunning,
+        playerCards,
+        dealerCards,
+        showCardView,
+    } from "./store.js";
     import { giveCardPlayer } from "./utils";
 
     function handleStartBtn() {
+        showCardView.set(false);
         gameRunning.set(true);
         playerCards.set([]);
         dealerCards.set([]);
