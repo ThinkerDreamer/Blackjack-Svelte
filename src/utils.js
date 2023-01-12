@@ -1,6 +1,5 @@
 import {
     gameRunning, playerCards, dealerCards, currentMsg, currentBet, playerMoney, playersTurn,
-    cardLastAdded
 } from "./store";
 
 let pMoney;
@@ -14,11 +13,6 @@ currentBet.subscribe(bet => {
     cBet = bet;
 })
 
-
-let lastCard;
-cardLastAdded.subscribe(card => {
-    lastCard = card;
-});
 
 
 export function randomCard() {
@@ -51,9 +45,6 @@ export function randomCard() {
     return card;
 }
 
-function updateLastCard(card) {
-    cardLastAdded.set(card);
-}
 
 export function giveCardPlayer() {
     let card = randomCard();
@@ -61,7 +52,6 @@ export function giveCardPlayer() {
     playerCards.update((currentCards) => {
         return [...currentCards, card];
     });
-    updateLastCard(card);
 }
 
 export function giveCardDealer() {

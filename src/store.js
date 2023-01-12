@@ -8,7 +8,6 @@ export let playerCards = writable([]);
 export let dealerCards = writable([]);
 export let currentMsg = writable("");
 export let playersTurn = writable(false);
-export let cardLastAdded = writable({});
 export let showCardView = writable(false);
 
 export const playerSum = derived(
