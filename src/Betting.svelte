@@ -10,14 +10,9 @@
     import Message from "./Message.svelte";
 
     let message = "Choose your bet";
-    $: betText = "Default bet: $25";
     $: choosingBet = true;
-    $: localBet = currentBet;
-
-    function selectNewBet() {
-        betText = "Current bet: $" + this.value;
-        localBet = this.value;
-    }
+    $: localBet = $currentBet;
+    $: betText = "Current bet: $" + localBet;
 
     function setBet() {
         choosingBet = false;
@@ -39,8 +34,7 @@
             max={$playerMoney}
             min="5"
             step="5"
-            value={$playerMoney / 8}
-            on:mousemove|self={selectNewBet}
+            bind:value={localBet}
         />
         <button on:click={setBet}>Save bet</button>
     {/if}
