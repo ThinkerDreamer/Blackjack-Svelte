@@ -1,13 +1,27 @@
 <script>
-  import { giveCardPlayer } from "./utils";
-  import { playerCards, playerSum } from "./store";
+  import { currentMsg } from "./store.js";
+  import { giveCardPlayer, handleDealerWins } from "./utils";
+  import { playerSum } from "./store";
 
-  // async function handleHit() {
   function handleHit() {
     giveCardPlayer();
-    //await tick();
-    //$playerSum = $playerSum;
-    $playerCards = $playerCards;
+    checkForBust();
+    checkFor21();
+  }
+
+  function checkFor21() {
+    if ($playerSum === 21) {
+      currentMsg.set("You got 21! You win! Play again?");
+      handlePlayerWins();
+    }
+  }
+  function checkForBust() {
+    if ($playerSum > 21) {
+      currentMsg.set(
+        "You got " + $playerSum + "<br>and busted!<br>Dealer wins! Play again?"
+      );
+      handleDealerWins();
+    }
   }
 </script>
 

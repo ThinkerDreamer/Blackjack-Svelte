@@ -11,21 +11,14 @@
   import StayButton from "./StayButton.svelte";
   import Message from "./Message.svelte";
   import Betting from "./Betting.svelte";
-  import { handleDealerWins, handlePlayerWins } from "./utils";
+  import { handlePlayerWins } from "./utils";
 
   $: message = "";
   $bettingTime = true;
 
-  $: if ($playerSum >= 21 && $playersTurn) {
-    $playersTurn = false;
-    if ($playerSum > 21) {
-      message = "You busted! Play again?";
-      handleDealerWins();
-    }
-    if ($playerSum === 21) {
-      message = "You got 21! You win!";
-      handlePlayerWins();
-    }
+  $: if ($playerSum === 21) {
+    message = "You got 21! You win!";
+    handlePlayerWins();
   }
 </script>
 
