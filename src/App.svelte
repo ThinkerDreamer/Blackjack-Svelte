@@ -17,9 +17,7 @@
 <Title />
 
 {#if !$gameRunning}
-  <Message
-    message={$currentMsg ? $currentMsg : "Do you want to play a round?"}
-  />
+  <Message message={$currentMsg ? $currentMsg : "Want to play a round?"} />
   <StartGame />
 {/if}
 
