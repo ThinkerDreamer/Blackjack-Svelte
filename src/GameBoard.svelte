@@ -10,12 +10,10 @@
 
   import HitButton from "./HitButton.svelte";
   import StayButton from "./StayButton.svelte";
-  import Message from "./Message.svelte";
   import Betting from "./Betting.svelte";
   import { handlePlayerWins } from "./utils";
   import CardView from "./CardView.svelte";
 
-  $: message = "";
   $bettingTime = true;
 
   $: if ($playerSum === 21) {
@@ -42,6 +40,6 @@
 
 <style>
   .small {
-    font-size: 50%;
+    font-size: 0.5rem;
   }
 </style>
