@@ -16,7 +16,10 @@
   $playerMoney = $playerMoney;
 
   //TODO: bug 1) when natural 21, prize is added twice
-  //      bug 2) handle negative money
+  //      ✅  2) handle negative money
+  //      ✅  3) cards are dealt before bets are taken, so you can get 21 without betting
+  //          4) When you get 21 via HitButton, there are two 🎉 screens: one with CardView small, and one with no CardView
+  //  feature 5) keep track of highest money achieved
 </script>
 
 <svelte:head>
