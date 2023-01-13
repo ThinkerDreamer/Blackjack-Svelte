@@ -66,25 +66,27 @@
     background-color: goldenrod;
     border: 1px solid gold;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
     color: #ffffff;
     cursor: pointer;
     display: block;
     font-size: 0.5rem;
-    line-height: 100%;
-    margin: 0;
-    outline: 0;
-    padding: 0.25rem 0.35rem 0.25rem;
     text-align: center;
-    user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     max-width: 90%;
+    margin: 0 auto 0.1em;
+    padding: 0.25rem 0.5rem;
+    font-weight: bold;
+    width: fit-content;
+    min-width: 5em;
   }
 
   :global(button:hover) {
     box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
-      rgba(0, 0, 0, 0.4) 0 1px 2px;
+      rgba(0, 0, 0, 0.6) 0 1px 3px;
+    background-color: gold;
+    border-color: goldenrod;
+    color: black;
     text-decoration: none;
   }
 
