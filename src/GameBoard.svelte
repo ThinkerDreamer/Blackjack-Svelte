@@ -18,6 +18,7 @@
 
   $: if ($playerSum === 21) {
     currentMsg.set("You got 21! You win!");
+    showCardView.set(true);
     handlePlayerWins();
   }
 </script>
