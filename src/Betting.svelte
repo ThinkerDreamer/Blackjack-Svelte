@@ -10,30 +10,41 @@
 
     import Message from "./Message.svelte";
 
-    let message = "Choose your bet";
-    $: betText = "Current bet: $" + $currentBet;
+    $: outOfChips = $playerMoney <= 0;
+    $: message = outOfChips
+        ? "You don't have enough money.<br>Need more?"
+        : "Choose your bet";
 
-    function setBet() {
-        giveCardPlayer();
-        giveCardPlayer();
-        bettingTime.set(false);
-        gameRunning.set(true);
-        playerMoney.set($playerMoney - $currentBet);
-        playersTurn.set(true);
+    $: betText = "Current bet: $" + $currentBet;
+    $: buttonText = outOfChips ? "Get more chips" : "Save bet";
+    function handleBet() {
+        if (!outOfChips) {
+            giveCardPlayer();
+            giveCardPlayer();
+            playerMoney.set($playerMoney - $currentBet);
+            bettingTime.set(false);
+            gameRunning.set(true);
+            playersTurn.set(true);
+        } else {
+            currentBet.set(25);
+            playerMoney.set(200);
+        }
     }
 </script>
 
 <Message {message} />
-<p>{betText}</p>
-<input
-    type="range"
-    id="bet-slider"
-    max={$playerMoney}
-    min="5"
-    step="5"
-    bind:value={$currentBet}
-/>
-<button on:click={setBet}>Save bet</button>
+{#if !outOfChips}
+    <p>{betText}</p>
+    <input
+        type="range"
+        id="bet-slider"
+        max={$playerMoney}
+        min="5"
+        step="5"
+        bind:value={$currentBet}
+    />
+{/if}
+<button on:click={handleBet}>{buttonText}</button>
 
 <style>
     #bet-slider {
