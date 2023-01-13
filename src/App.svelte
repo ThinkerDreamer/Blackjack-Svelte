@@ -79,7 +79,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 100%;
+    max-width: 90%;
   }
 
   :global(button:hover) {
