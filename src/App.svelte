@@ -61,4 +61,35 @@
     margin: 0.5rem auto;
     color: white;
   }
+
+  :global(button) {
+    background-color: goldenrod;
+    border: 1px solid gold;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 0.5rem;
+    line-height: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0.25rem 0.35rem 0.25rem;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
+
+  :global(button:hover) {
+    box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+      rgba(0, 0, 0, 0.4) 0 1px 2px;
+    text-decoration: none;
+  }
+
+  :global(button:active) {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset,
+      rgba(0, 0, 0, 0.4) 0 1px 1px;
+  }
 </style>
