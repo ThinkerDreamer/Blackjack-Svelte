@@ -7,13 +7,10 @@ playerMoney.subscribe(money => {
     pMoney = money;
 });
 
-
 let cBet;
 currentBet.subscribe(bet => {
     cBet = bet;
 })
-
-
 
 export function randomCard() {
     let card = {};
@@ -45,7 +42,6 @@ export function randomCard() {
     return card;
 }
 
-
 export function giveCardPlayer() {
     let card = randomCard();
     // add the new card to the rest of the cards in the player's hand
@@ -59,12 +55,6 @@ export function giveCardDealer() {
     dealerCards.update((currentCards) => {
         return [...currentCards, card];
     })
-}
-
-export function handleReset(message) {
-    currentMsg.set(message);
-    gameRunning.set(false);
-    playersTurn.set(false);
 }
 
 export function handlePlayerWins() {
