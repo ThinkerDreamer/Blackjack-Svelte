@@ -47,8 +47,6 @@
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", Arial,
       sans-serif;
     background-image: url("../blackjack-table.jpg");
-    /*             filter: blur(8px);
-            -webkit-filter: blur(8px); */
     background-size: cover;
     font-weight: bold;
     color: white;
@@ -71,7 +69,6 @@
     display: block;
     font-size: 0.5rem;
     text-align: center;
-    -webkit-user-select: none;
     touch-action: manipulation;
     max-width: 90%;
     margin: 0 auto 0.1em;
