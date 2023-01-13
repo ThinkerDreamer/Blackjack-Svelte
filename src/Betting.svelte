@@ -6,15 +6,16 @@
         gameRunning,
         playersTurn,
     } from "./store";
+    import { giveCardPlayer } from "./utils";
 
     import Message from "./Message.svelte";
 
     let message = "Choose your bet";
-    $: choosingBet = true;
     $: betText = "Current bet: $" + $currentBet;
 
     function setBet() {
-        choosingBet = false;
+        giveCardPlayer();
+        giveCardPlayer();
         bettingTime.set(false);
         gameRunning.set(true);
         playerMoney.set($playerMoney - $currentBet);
@@ -22,26 +23,19 @@
     }
 </script>
 
-<div class="betting-els">
-    <Message {message} />
-    <p class:small={!choosingBet}>{betText}</p>
-    {#if choosingBet}
-        <input
-            type="range"
-            id="bet-slider"
-            max={$playerMoney}
-            min="5"
-            step="5"
-            bind:value={$currentBet}
-        />
-        <button on:click={setBet}>Save bet</button>
-    {/if}
-</div>
+<Message {message} />
+<p>{betText}</p>
+<input
+    type="range"
+    id="bet-slider"
+    max={$playerMoney}
+    min="5"
+    step="5"
+    bind:value={$currentBet}
+/>
+<button on:click={setBet}>Save bet</button>
 
 <style>
-    .small {
-        font-size: 50%;
-    }
     #bet-slider {
         width: 50%;
         height: 15px;
