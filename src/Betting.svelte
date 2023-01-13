@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
     import {
         bettingTime,
         playerMoney,
@@ -7,8 +8,9 @@
         playersTurn,
     } from "./store";
     import { giveCardPlayer } from "./utils";
-
     import Message from "./Message.svelte";
+
+    onMount(() => currentBet.set(Math.min($currentBet, $playerMoney)));
 
     $: outOfChips = $playerMoney <= 0;
     $: message = outOfChips
